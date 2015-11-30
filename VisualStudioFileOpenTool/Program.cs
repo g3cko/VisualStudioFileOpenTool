@@ -30,7 +30,8 @@ namespace VisualStudioFileOpenTool
 					dte2 = (EnvDTE80.DTE2)System.Runtime.InteropServices.Marshal.GetActiveObject(vsString);
 					dte2.MainWindow.Activate();
 					EnvDTE.Window w = dte2.ItemOperations.OpenFile(filename, EnvDTE.Constants.vsViewKindTextView);
-					((EnvDTE.TextSelection) dte2.ActiveDocument.Selection).GotoLine(fileline, true);
+                    
+                    			((EnvDTE.TextSelection)dte2.ActiveDocument.Selection).MoveToDisplayColumn(fileline, filecolumn);
 				}
 				else
 				{
