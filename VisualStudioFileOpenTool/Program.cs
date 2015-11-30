@@ -25,7 +25,10 @@ namespace VisualStudioFileOpenTool
 
 					int fileline;
 					int.TryParse(args[2], out fileline);
-
+                    			int filecolumn = 0;
+                    			if(args.Length == 4)
+			                	int.TryParse(args[3], out filecolumn);
+                        
 					EnvDTE80.DTE2 dte2;
 					dte2 = (EnvDTE80.DTE2)System.Runtime.InteropServices.Marshal.GetActiveObject(vsString);
 					dte2.MainWindow.Activate();
